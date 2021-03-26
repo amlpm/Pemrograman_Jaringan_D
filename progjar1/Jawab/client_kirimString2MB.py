@@ -9,6 +9,7 @@ server_address = ('localhost', 10000)
 print(f"connecting to {server_address}")
 sock.connect(server_address)
 
+
 try:
     # Send data
     message = 'INI ADALAH DATA YANG DIKIRIM ABCDEFGHIJKLMNOPQ'
