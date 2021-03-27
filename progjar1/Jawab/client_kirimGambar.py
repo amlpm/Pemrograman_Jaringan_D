@@ -16,7 +16,7 @@ for x in range(2):
         # Send data
         print(f"Enter file name of the image with extension (example: filename.jpg,filename.png)")
         fname = input()
-        rname = 'kirimBalik' + '-' + 'alpine' + str(x) + '-' + fname
+        rname = 'kirimBalik' + '-' + 'alpine' + str(x+1) + '-' + fname
         f = open(fname, 'rb')
         img = f.read()
         sock.sendall(img)
