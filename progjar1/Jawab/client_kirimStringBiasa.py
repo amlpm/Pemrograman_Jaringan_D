@@ -1,7 +1,7 @@
 import sys
 import socket
 
-ip = ['192.168.122.51', '192.168.122.21']
+ip = ['192.168.122.155', '192.168.122.21']
 
 for x in range(2):
     # Create a TCP/IP socket
