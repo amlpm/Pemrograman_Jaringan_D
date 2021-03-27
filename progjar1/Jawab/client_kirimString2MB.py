@@ -1,5 +1,7 @@
 import sys
 import socket
+import random
+import string
 
 # Create a TCP/IP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -9,12 +11,16 @@ server_address = ('localhost', 10000)
 print(f"connecting to {server_address}")
 sock.connect(server_address)
 
-
 try:
     # Send data
-    message = 'INI ADALAH DATA YANG DIKIRIM ABCDEFGHIJKLMNOPQ'
+    # 1Mb = 1000kb
+    # 1Kb = 1000byte
+    # 1character = 1byte
+    # Conclusion : 2Mb = 2000000 Character
+    message = ''.join(random.choices(string.ascii_letters, k = 2000000))
     print(f"sending {message}")
     sock.sendall(message.encode())
+
     # Look for the response
     amount_received = 0
     amount_expected = len(message)
