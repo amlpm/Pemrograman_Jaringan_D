@@ -1,3 +1,5 @@
+#Referensi https://www.bogotobogo.com/python/python_network_programming_server_client_file_transfer.php
+
 import time
 import datetime
 import socket
@@ -20,12 +22,12 @@ def broadcast(daftar=None):
         return False
 
     #seperti praktikum UDP 1 dan 2
-    fp = open(daftar,"rb")
-    sendimg = fp.read(1024)
-    while (sendimg):
-        if(sock.sendto(sendimg, (TARGET_IP, TARGET_PORT))):
-                sendimg = fp.read(1024)
-    fp.close()
+    f = open(daftar,"rb")
+    l = f.read(1024)
+    while (l):
+        if(sock.sendto(l, (TARGET_IP, TARGET_PORT))):
+                l = f.read(1024)
+    f.close()
 
 #sama seperti kodingan pada folder concurrency, hanya ganti fungsi dan menambahkan daftar gambar
 def kirim_semua():
