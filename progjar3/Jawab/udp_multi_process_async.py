@@ -6,18 +6,19 @@ import socket
 import logging
 from multiprocessing import Process, Pool
 
-TARGET_IP = "192.168.122.255"
+#target IP kirim
+TARGET_IP = "192.168.122.255" #Bcast = Broadcast Address
 TARGET_PORT = 5005
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEPORT, 1)
 sock.setsockopt(socket.SOL_SOCKET,socket.SO_BROADCAST, 1)
 
-#fungsi broadcast untuk membroadcast 2 gambar yang di list 'daftar'
-def broadcast(daftar=None):
+#fungsi kirim untuk mengkirim 2 gambar yang di list 'daftar'
+def kirim(daftar=None):
 
     #menggunakan if apabila pada list 'daftar' tidak ada gambar tersedia
-    #apabila tidak memakai if, akan muncul pesan error 'broadcast() takes 0 positional arguments but 1 was given'
+    #apabila tidak memakai if, akan muncul pesan error 'kirim() takes 0 positional arguments but 1 was given'
     if (daftar is None):
         return False
 
@@ -40,8 +41,8 @@ def kirim_semua():
     catat_awal = datetime.datetime.now()
     for k in range(len(daftar)):
         print(f"mengirim {daftar[k]}")
-        #bagian ini merupakan bagian yang mengistruksikan eksekusi fungsi download gambar secara multiprocess
-        texec[k] = task_pool.apply_async(func=broadcast, args=(daftar[k],))
+        #bagian ini merupakan bagian yang mengistruksikan eksekusi fungsi kirim secara multiprocess
+        texec[k] = task_pool.apply_async(func=kirim, args=(daftar[k],))
 
     #setelah menyelesaikan tugasnya, dikembalikan ke main process dengan mengambil hasilnya dengan get
     for k in range(len(daftar)):
@@ -53,5 +54,6 @@ def kirim_semua():
     print("status TASK")
     print(status_task)
 
+#fungsi kirim_semua akan dijalankan secara multi process async
 if __name__=='__main__':
     kirim_semua()
