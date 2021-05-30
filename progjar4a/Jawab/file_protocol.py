@@ -15,8 +15,6 @@ pada akhirnya akan diproses dalam bentuk string
 string
 """
 
-
-
 class FileProtocol:
     def __init__(self):
         self.file = FileInterface()

@@ -3,7 +3,7 @@ import json
 import base64
 import logging
 
-server_address=('0.0.0.0',7777)
+server_address=('192.168.122.78',5005)
 
 def send_command(command_str=""):
     global server_address
@@ -35,7 +35,6 @@ def send_command(command_str=""):
         logging.warning("error during data receiving")
         return False
 
-
 def remote_list():
     command_str=f"LIST"
     hasil = send_command(command_str)
@@ -63,8 +62,6 @@ def remote_get(filename=""):
         print("Gagal")
         return False
 
-
 if __name__=='__main__':
-    server_address=('0.0.0.0',6666)
+    server_address=('192.168.122.78',5005)
     remote_list()
-    #remote_get('donalbebek.jpg')

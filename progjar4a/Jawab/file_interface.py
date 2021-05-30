@@ -3,7 +3,6 @@ import json
 import base64
 from glob import glob
 
-
 class FileInterface:
     def __init__(self):
         os.chdir('files/')
@@ -24,8 +23,6 @@ class FileInterface:
             return dict(status='OK',data_namafile=filename,data_file=isifile)
         except Exception as e:
             return dict(status='ERROR',data=str(e))
-
-
 
 if __name__=='__main__':
     f = FileInterface()

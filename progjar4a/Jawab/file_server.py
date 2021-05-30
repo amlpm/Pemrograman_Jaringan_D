@@ -5,10 +5,8 @@ import logging
 import time
 import sys
 
-
 from file_protocol import  FileProtocol
 fp = FileProtocol()
-
 
 class ProcessTheClient(threading.Thread):
     def __init__(self, connection, address):
@@ -28,9 +26,8 @@ class ProcessTheClient(threading.Thread):
                 break
         self.connection.close()
 
-
 class Server(threading.Thread):
-    def __init__(self,ipaddress='0.0.0.0',port=8889):
+    def __init__(self,ipaddress='192.168.122.78',port=5005):
         self.ipinfo=(ipaddress,port)
         self.the_clients = []
         self.my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -51,7 +48,7 @@ class Server(threading.Thread):
 
 
 def main():
-    svr = Server(ipaddress='0.0.0.0',port=6666)
+    svr = Server(ipaddress='192.168.122.78',port=5005)
     svr.start()
 
 
