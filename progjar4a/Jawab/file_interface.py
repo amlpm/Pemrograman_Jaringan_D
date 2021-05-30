@@ -5,7 +5,7 @@ from glob import glob
 
 class FileInterface:
     def __init__(self):
-        os.chdir('files/')
+        os.chdir('/home/work/Pemrograman_Jaringan_D/progjar4a/Jawab')
 
     def list(self):
         try:

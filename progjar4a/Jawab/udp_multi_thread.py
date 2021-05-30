@@ -1,5 +1,3 @@
-#Referensi https://www.bogotobogo.com/python/python_network_programming_server_client_file_transfer.php
-
 from file_client_cli import remote_get
 import time
 import datetime
