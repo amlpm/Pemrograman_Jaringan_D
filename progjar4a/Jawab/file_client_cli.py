@@ -3,7 +3,7 @@ import json
 import base64
 import logging
 
-server_address=('192.168.122.72',5005)
+server_address=('192.168.122.248',5005)
 
 def send_command(command_str=""):
     global server_address
@@ -63,5 +63,5 @@ def remote_get(filename=""):
         return False
 
 if __name__=='__main__':
-    server_address=('192.168.122.72',5005)
+    server_address=('192.168.122.248',5005)
     remote_list()

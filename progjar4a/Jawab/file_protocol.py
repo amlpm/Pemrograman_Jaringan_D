@@ -34,7 +34,6 @@ class FileProtocol:
         except Exception:
             return json.dumps(dict(status='ERROR',data='request tidak dikenali'))
 
-
 if __name__=='__main__':
     #contoh pemakaian
     fp = FileProtocol()
